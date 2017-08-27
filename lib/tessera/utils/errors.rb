@@ -2,6 +2,10 @@
 #
 # Collection of errors used in this library
 #
+# Every time you want to raise one of these, you just go ahead and do:
+#
+# raise Tessera::ConfigNotSet, 'Your param'
+#
 module Tessera
   class Error < StandardError; end
 

@@ -1,5 +1,19 @@
+##
+#
+# requires outside this gem folder
+#
+require 'net/http'
+
+##
+#
+# requires of this gem classes
+#
 require 'tessera/version'
 require 'tessera/configuration'
+
+require 'tessera/utils/errors'
+
+require 'tessera/request'
 
 ##
 #
