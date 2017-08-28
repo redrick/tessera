@@ -25,7 +25,7 @@ module Tessera
     end
 
     def send
-      net_http_send
+      Response.new(net_http_send)
     end
 
     protected

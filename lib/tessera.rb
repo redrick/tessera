@@ -14,6 +14,8 @@ require 'tessera/configuration'
 require 'tessera/utils/errors'
 
 require 'tessera/request'
+require 'tessera/response'
+require 'tessera/tickets/request'
 
 ##
 #
