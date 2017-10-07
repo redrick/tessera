@@ -1,6 +1,7 @@
 AllCops:
   Exclude:
     - 'tessera.gemspec'
+    - 'spec/**/*'
   TargetRubyVersion: 2.3
 
 Style/FrozenStringLiteralComment:

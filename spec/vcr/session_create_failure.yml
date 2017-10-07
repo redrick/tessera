@@ -1,0 +1,25 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Session
+    body:
+      encoding: UTF-8
+      string: '{"UserLogin":"tester","Password":"wrong_pwd"}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '103'
+    body:
+      encoding: UTF-8
+      string: '{"Error":{"ErrorCode":"SessionCreate.AuthFail","ErrorMessage":"SessionCreate:
+        Authorization failing!"}}'
+    http_version:
+  recorded_at: Sat, 07 Oct 2017 14:29:44 GMT
+recorded_with: VCR 3.0.3

@@ -3,6 +3,7 @@
 # requires outside this gem folder
 #
 require 'net/http'
+require 'json'
 
 ##
 #
@@ -14,8 +15,11 @@ require 'tessera/configuration'
 require 'tessera/utils/errors'
 
 require 'tessera/request'
-require 'tessera/response'
-require 'tessera/tickets/request'
+
+require 'tessera/api/session'
+
+require 'tessera/model/base'
+require 'tessera/model/session'
 
 ##
 #

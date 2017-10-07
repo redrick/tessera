@@ -25,7 +25,8 @@ module Tessera
     end
 
     def send
-      Response.new(net_http_send)
+      net_http_send
+      # Response.new(net_http_send)
     end
 
     protected
@@ -35,11 +36,10 @@ module Tessera
 
       request = net_http_class.new(uri)
       headers.each { |k, v| request[k] = v }
-      request.body = @body.to_json if @body
+      request.body = @body.to_json
 
-      Net::HTTP.start(uri.hostname, uri.port,
-                      use_ssl: true,
-                      verify_mode: OpenSSL::SSL::VERIFY_NONE) do |http|
+      Net::HTTP.start(uri.hostname, uri.port) do |http|
+        # Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
         http.request(request)
       end
     end

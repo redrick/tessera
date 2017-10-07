@@ -2,6 +2,7 @@ require 'bundler/setup'
 require 'tessera'
 
 require 'support/vcr'
+require 'pry'
 
 require 'webmock/rspec'
 WebMock.disable_net_connect!(allow_localhost: true)
@@ -16,5 +17,11 @@ RSpec.configure do |config|
 
   config.expect_with :rspec do |c|
     c.syntax = :expect
+  end
+
+  Tessera.configure do |c|
+    c.username = 'tester'
+    c.password = 'mysecretpassword'
+    c.base_url = 'http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/'
   end
 end
