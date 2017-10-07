@@ -16,7 +16,7 @@ RSpec.describe Tessera::Api::Session do
 
       expect(@session.code).to eq('200')
       expect(@session.errors).to be_nil
-      expect(@session.session_id).to eq('71w6jIs1NVlOgqOllDjBqQrU5hWefWUL')
+      expect(@session.session_id).to eq('Sg9SlOIOXNT6JTq0slcxAMy61H4CnwYz')
     end
 
     it 'returns errors' do

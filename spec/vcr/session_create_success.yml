@@ -18,7 +18,7 @@ http_interactions:
       - '48'
     body:
       encoding: UTF-8
-      string: '{"SessionID":"71w6jIs1NVlOgqOllDjBqQrU5hWefWUL"}'
+      string: '{"SessionID":"Sg9SlOIOXNT6JTq0slcxAMy61H4CnwYz"}'
     http_version:
-  recorded_at: Sat, 07 Oct 2017 14:01:01 GMT
+  recorded_at: Sat, 07 Oct 2017 16:53:41 GMT
 recorded_with: VCR 3.0.3

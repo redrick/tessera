@@ -18,8 +18,7 @@ http_interactions:
       - '103'
     body:
       encoding: UTF-8
-      string: '{"Error":{"ErrorCode":"SessionCreate.AuthFail","ErrorMessage":"SessionCreate:
-        Authorization failing!"}}'
+      string: '{"Error":{"ErrorMessage":"SessionCreate: Authorization failing!","ErrorCode":"SessionCreate.AuthFail"}}'
     http_version:
-  recorded_at: Sat, 07 Oct 2017 14:29:44 GMT
+  recorded_at: Sat, 07 Oct 2017 16:53:41 GMT
 recorded_with: VCR 3.0.3
