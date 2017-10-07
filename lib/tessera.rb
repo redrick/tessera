@@ -28,10 +28,6 @@ require 'tessera/model/session'
 # See 'tessera/configuration.rb' for more explanation how to set configuration
 #
 module Tessera
-  class << self
-    attr_accessor :configuration
-  end
-
   def self.configuration
     @configuration ||= Configuration.new
   end

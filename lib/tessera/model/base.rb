@@ -6,8 +6,8 @@ module Tessera
       def initialize(response)
         @response = response
         @code = @response.code
-        parse_errors
-        parse_attributes
+        parse_errors if parsed_body
+        parse_attributes if parsed_body
       end
 
       protected
@@ -17,7 +17,7 @@ module Tessera
       end
 
       def parsed_body
-        JSON.parse(@response.body)
+        JSON.parse(@response.body) if @response.body
       end
 
       def parse_attributes
