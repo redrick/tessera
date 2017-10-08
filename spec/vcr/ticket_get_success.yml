@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Session
+    body:
+      encoding: UTF-8
+      string: '{"UserLogin":"tester","Password":"mysecretpassword"}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '48'
+    body:
+      encoding: UTF-8
+      string: '{"SessionID":"iDnplS08OQtcdynIsD6yhVLAlvt5eEru"}'
+    http_version:
+  recorded_at: Sun, 08 Oct 2017 12:27:51 GMT
+- request:
+    method: get
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Ticket/1
+    body:
+      encoding: UTF-8
+      string: '{"TicketID":1,"SessionID":"iDnplS08OQtcdynIsD6yhVLAlvt5eEru"}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '724'
+    body:
+      encoding: UTF-8
+      string: '{"Ticket":[{"LockID":1,"RealTillTimeNotUsed":0,"Changed":"2017-10-07
+        16:49:06","CustomerUserID":null,"QueueID":2,"EscalationSolutionTime":0,"OwnerID":1,"UnlockTimeout":0,"PriorityID":3,"EscalationTime":0,"Type":"Unclassified","Queue":"Raw","EscalationResponseTime":0,"TicketID":1,"EscalationUpdateTime":0,"CustomerID":null,"Age":70516662,"UntilTime":0,"Responsible":"root@localhost","Lock":"unlock","Priority":"3
+        normal","StateID":1,"CreateBy":1,"State":"new","TypeID":1,"TicketNumber":"2015071510123456","GroupID":1,"Created":"2015-07-15
+        08:30:30","ServiceID":"","Owner":"root@localhost","SLAID":"","StateType":"new","Title":"Welcome
+        to OTRS!","ResponsibleID":1,"CreateTimeUnix":1436949030,"ChangeBy":1,"ArchiveFlag":"n"}]}'
+    http_version:
+  recorded_at: Sun, 08 Oct 2017 12:27:51 GMT
+recorded_with: VCR 3.0.3

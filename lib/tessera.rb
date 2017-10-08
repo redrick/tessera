@@ -17,7 +17,7 @@ require 'tessera/utils/errors'
 require 'tessera/request'
 
 require 'tessera/api/session'
-require 'tessera/api/ticket'
+require 'tessera/api/ticket_get'
 
 require 'tessera/model/base'
 require 'tessera/model/session'
