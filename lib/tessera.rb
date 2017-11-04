@@ -23,6 +23,8 @@ require 'tessera/model/base'
 require 'tessera/model/session'
 require 'tessera/model/ticket'
 
+require 'tessera/ticket'
+
 ##
 #
 # Main module of OTRS wrapper

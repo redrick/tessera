@@ -15,4 +15,11 @@ module Tessera
       super(msg)
     end
   end
+
+  class TicketNotFound < Error
+    def initialize(message, code)
+      msg = "ErrorCode: #{code} \nMessage: #{message}"
+      super(msg)
+    end
+  end
 end

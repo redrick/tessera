@@ -14,8 +14,8 @@ module Tessera
       end
 
       def call
-        Tessera::Request.new(:GET, "Ticket/#{@ticket_id}", body).send
-        # binding.pry
+        response = Tessera::Request.new(:GET, "Ticket/#{@ticket_id}", body).send
+        JSON.parse(response.body)
       end
 
       def session_id

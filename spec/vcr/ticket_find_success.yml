@@ -18,15 +18,15 @@ http_interactions:
       - '48'
     body:
       encoding: UTF-8
-      string: '{"SessionID":"YeOB0G8xLLxFT9b2BBjKWZvvo60rkjvG"}'
+      string: '{"SessionID":"SU211lAjBlduQkwuI8AJzJIpZbtVHOSV"}'
     http_version:
-  recorded_at: Sat, 04 Nov 2017 09:47:02 GMT
+  recorded_at: Sat, 04 Nov 2017 10:00:10 GMT
 - request:
     method: get
     uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Ticket/1
     body:
       encoding: UTF-8
-      string: '{"TicketID":1,"SessionID":"YeOB0G8xLLxFT9b2BBjKWZvvo60rkjvG"}'
+      string: '{"TicketID":1,"SessionID":"SU211lAjBlduQkwuI8AJzJIpZbtVHOSV"}'
     headers: {}
   response:
     status:
@@ -40,9 +40,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"Ticket":[{"Owner":"root@localhost","SLAID":"","UntilTime":0,"CustomerUserID":null,"Queue":"Raw","ArchiveFlag":"n","ChangeBy":1,"CustomerID":null,"EscalationUpdateTime":0,"StateType":"new","UnlockTimeout":0,"RealTillTimeNotUsed":0,"StateID":1,"TypeID":1,"ResponsibleID":1,"Lock":"unlock","OwnerID":1,"Title":"Welcome
-        to OTRS!","Type":"Unclassified","EscalationSolutionTime":0,"EscalationResponseTime":0,"EscalationTime":0,"Created":"2015-07-15
-        08:30:30","CreateBy":1,"GroupID":1,"Changed":"2017-11-04 08:17:21","TicketID":1,"ServiceID":"","State":"new","Priority":"3
-        normal","Responsible":"root@localhost","TicketNumber":"2015071510123456","PriorityID":3,"LockID":1,"QueueID":2,"CreateTimeUnix":1436949030,"Age":72839794}]}'
+        to OTRS!","Type":"Unclassified","EscalationResponseTime":0,"EscalationSolutionTime":0,"Created":"2015-07-15
+        08:30:30","EscalationTime":0,"CreateBy":1,"GroupID":1,"Changed":"2017-11-04
+        08:17:21","TicketID":1,"State":"new","ServiceID":"","Priority":"3 normal","Responsible":"root@localhost","TicketNumber":"2015071510123456","PriorityID":3,"LockID":1,"QueueID":2,"CreateTimeUnix":1436949030,"Age":72840582}]}'
     http_version:
-  recorded_at: Sat, 04 Nov 2017 09:47:02 GMT
+  recorded_at: Sat, 04 Nov 2017 10:00:10 GMT
 recorded_with: VCR 3.0.3
