@@ -6,6 +6,7 @@ RSpec.describe Tessera::Ticket do
       end
 
       expect(@ticket).not_to be_nil
+      expect(@ticket).to be_kind_of(Tessera::Model::Ticket)
       expect(@ticket.age).to eq(72840582)
       expect(@ticket.archive_flag).to eq("n")
       expect(@ticket.changed).to eq("2017-11-04 08:17:21")
@@ -51,6 +52,19 @@ RSpec.describe Tessera::Ticket do
           @ticket = Tessera::Ticket.find(999)
         end
       end.to raise_error { Tessera::TicketNotFound }
+    end
+
+    it 'correctly returns array of tickets if asked for it' do
+      VCR.use_cassette 'ticket_array_find_success' do
+        @tickets = Tessera::Ticket.find([1, 2, 3])
+      end
+
+      expect(@tickets).to be_kind_of(Array)
+      expect(@tickets.size).to eq(3)
+      expect(@tickets.first).to be_kind_of(Tessera::Model::Ticket)
+      expect(@tickets.first.ticket_id).to eq(1)
+      expect(@tickets.first(2).last.ticket_id).to eq(2)
+      expect(@tickets.first(3).last.ticket_id).to eq(3)
     end
   end
 end

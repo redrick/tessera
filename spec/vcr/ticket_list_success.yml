@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Session
+    body:
+      encoding: UTF-8
+      string: '{"UserLogin":"tester","Password":"mysecretpassword"}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '48'
+    body:
+      encoding: UTF-8
+      string: '{"SessionID":"D65HJ25Qk3AYrV2XmDw7MqYl2LSdd5iO"}'
+    http_version:
+  recorded_at: Sun, 05 Nov 2017 20:35:13 GMT
+- request:
+    method: get
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/TicketList
+    body:
+      encoding: UTF-8
+      string: '{"TicketID":[1,2,3],"SessionID":"D65HJ25Qk3AYrV2XmDw7MqYl2LSdd5iO"}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '2212'
+    body:
+      encoding: UTF-8
+      string: '{"Ticket":[{"ResponsibleID":1,"TicketID":1,"CustomerID":null,"Title":"Welcome
+        to OTRS!","StateID":1,"UntilTime":0,"Type":"Unclassified","ChangeBy":1,"Responsible":"root@localhost","Queue":"Raw","UnlockTimeout":0,"ServiceID":"","EscalationTime":0,"StateType":"new","ArchiveFlag":"n","PriorityID":3,"Lock":"unlock","CreateBy":1,"TicketNumber":"2015071510123456","LockID":1,"OwnerID":1,"CreateTimeUnix":1436949030,"SLAID":"","RealTillTimeNotUsed":0,"TypeID":1,"QueueID":2,"GroupID":1,"EscalationResponseTime":0,"CustomerUserID":null,"State":"new","Age":72965088,"Priority":"3
+        normal","Created":"2015-07-15 08:30:30","EscalationUpdateTime":0,"Changed":"2017-11-05
+        19:41:34","EscalationSolutionTime":0,"Owner":"root@localhost"},{"ResponsibleID":1,"TicketID":2,"CustomerID":"678","Title":"Do
+        not get out of your house!","StateID":1,"UntilTime":0,"Type":"Unclassified","ChangeBy":1,"Responsible":"root@localhost","Queue":"Raw","UnlockTimeout":0,"ServiceID":"","EscalationTime":0,"StateType":"new","ArchiveFlag":"n","PriorityID":3,"Lock":"unlock","CreateBy":1,"TicketNumber":"2017110548000019","OwnerID":1,"LockID":1,"CreateTimeUnix":1509914092,"SLAID":"","RealTillTimeNotUsed":0,"TypeID":1,"QueueID":2,"GroupID":1,"State":"new","EscalationResponseTime":0,"CustomerUserID":"205@example-sales.net","Age":26,"Priority":"3
+        normal","Created":"2017-11-05 20:34:52","EscalationUpdateTime":0,"Changed":"2017-11-05
+        20:34:53","EscalationSolutionTime":0,"Owner":"root@localhost"},{"ResponsibleID":1,"TicketID":3,"CustomerID":"617","Title":"and
+        we go an very long way to home","StateID":1,"UntilTime":0,"Type":"Unclassified","ChangeBy":1,"Responsible":"root@localhost","Queue":"Raw","UnlockTimeout":0,"ServiceID":"","EscalationTime":0,"StateType":"new","ArchiveFlag":"n","PriorityID":4,"Lock":"unlock","CreateBy":1,"TicketNumber":"2017110548000028","OwnerID":1,"LockID":1,"CreateTimeUnix":1509914093,"SLAID":"","RealTillTimeNotUsed":0,"TypeID":1,"QueueID":2,"GroupID":1,"State":"new","EscalationResponseTime":0,"CustomerUserID":"985@slow-company-example.com","Age":25,"Priority":"4
+        high","Created":"2017-11-05 20:34:53","EscalationUpdateTime":0,"Changed":"2017-11-05
+        20:34:54","EscalationSolutionTime":0,"Owner":"root@localhost"}]}'
+    http_version:
+  recorded_at: Sun, 05 Nov 2017 20:35:13 GMT
+recorded_with: VCR 3.0.3

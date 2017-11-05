@@ -5,8 +5,12 @@
 module Tessera
   module Api
     class TicketList
-      def self.call
-        new.call
+      def self.call(ticket_ids)
+        new(ticket_ids).call
+      end
+
+      def initialize(ticket_ids)
+        @ticket_ids = ticket_ids
       end
 
       def call
@@ -24,7 +28,7 @@ module Tessera
 
       def body
         {
-          TicketID: @ticket_id,
+          TicketID: @ticket_ids,
           SessionID: session_id
         }
       end
