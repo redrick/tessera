@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Session
+    body:
+      encoding: UTF-8
+      string: '{"UserLogin":"tester","Password":"mysecretpassword"}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '48'
+    body:
+      encoding: UTF-8
+      string: '{"SessionID":"6on2jbRgua9oRkbNmXrHx6xTM8PK4dHc"}'
+    http_version:
+  recorded_at: Sun, 05 Nov 2017 21:03:23 GMT
+- request:
+    method: get
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Ticket
+    body:
+      encoding: UTF-8
+      string: '{"Result":"COUNT","SessionID":"6on2jbRgua9oRkbNmXrHx6xTM8PK4dHc"}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '60'
+    body:
+      encoding: UTF-8
+      string: '{"TicketID":["11","9","10","8","7","6","5","4","3","2","1"]}'
+    http_version:
+  recorded_at: Sun, 05 Nov 2017 21:03:23 GMT
+recorded_with: VCR 3.0.3

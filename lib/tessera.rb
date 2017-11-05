@@ -19,6 +19,7 @@ require 'tessera/request'
 require 'tessera/api/session'
 require 'tessera/api/ticket_get'
 require 'tessera/api/ticket_list'
+require 'tessera/api/ticket_search'
 
 require 'tessera/model/base'
 require 'tessera/model/session'
