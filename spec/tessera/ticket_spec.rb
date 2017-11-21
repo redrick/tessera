@@ -67,4 +67,31 @@ RSpec.describe Tessera::Ticket do
       expect(@tickets.first(3).last.ticket_id).to eq(3)
     end
   end
+
+  describe '.where' do
+    describe '#ticket_ids' do
+      it 'returns array of ticket IDs' do
+        VCR.use_cassette 'ticket_where_ids_success' do
+          @result = Tessera::Ticket.where(Title: 'Why%')
+        end
+
+        expect(@result.ticket_ids).to contain_exactly(10, 2)
+      end
+    end
+
+    describe '#tickets' do
+      it 'returns array of tickets' do
+        VCR.use_cassette 'ticket_where_tickets_success' do
+          result = Tessera::Ticket.where(Title: 'Why%')
+          @tickets = result.tickets
+        end
+
+        expect(@tickets).to be_kind_of(Array)
+        expect(@tickets.size).to eq(2)
+        expect(@tickets.first).to be_kind_of(Tessera::Model::Ticket)
+        expect(@tickets.first.ticket_id).to eq(10)
+        expect(@tickets.first(2).last.ticket_id).to eq(2)
+      end
+    end
+  end
 end

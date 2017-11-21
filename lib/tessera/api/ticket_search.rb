@@ -1,11 +1,12 @@
 ##
-#
-#
+# Class for searching through tickets
+#  as params hash any of these in official docs could be used:
+#  http://doc.otrs.com/doc/api/otrs/5.0/Perl/Kernel/GenericInterface/Operation/Ticket/TicketSearch.pm.html
 #
 module Tessera
   module Api
     class TicketSearch
-      def self.call(params)
+      def self.call(params = nil)
         new(params).call
       end
 

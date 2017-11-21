@@ -1,0 +1,135 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Session
+    body:
+      encoding: UTF-8
+      string: '{"UserLogin":"tester","Password":"mysecretpassword"}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '48'
+    body:
+      encoding: UTF-8
+      string: '{"SessionID":"xTNzBPu6BS8ZYQf1PdZYdBzcso2iD9zG"}'
+    http_version:
+  recorded_at: Tue, 21 Nov 2017 21:24:24 GMT
+- request:
+    method: get
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Ticket
+    body:
+      encoding: UTF-8
+      string: '{"Title":"Why%","SessionID":"xTNzBPu6BS8ZYQf1PdZYdBzcso2iD9zG"}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '23'
+    body:
+      encoding: UTF-8
+      string: '{"TicketID":["10","2"]}'
+    http_version:
+  recorded_at: Tue, 21 Nov 2017 21:24:24 GMT
+- request:
+    method: post
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Session
+    body:
+      encoding: UTF-8
+      string: '{"UserLogin":"tester","Password":"mysecretpassword"}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '48'
+    body:
+      encoding: UTF-8
+      string: '{"SessionID":"eDq2iyyTD4pmRw4cEWRA4GnBIB6hdA90"}'
+    http_version:
+  recorded_at: Tue, 21 Nov 2017 21:24:24 GMT
+- request:
+    method: get
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Ticket/10
+    body:
+      encoding: UTF-8
+      string: '{"TicketID":"10","SessionID":"eDq2iyyTD4pmRw4cEWRA4GnBIB6hdA90"}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '738'
+    body:
+      encoding: UTF-8
+      string: '{"Ticket":[{"LockID":1,"EscalationUpdateTime":0,"Type":"Unclassified","ResponsibleID":1,"Lock":"unlock","SLAID":"","Responsible":"root@localhost","PriorityID":5,"Created":"2017-11-21
+        16:30:25","State":"new","CreateBy":1,"Title":"Why am I here?","Changed":"2017-11-21
+        16:30:25","ServiceID":"","OwnerID":1,"CreateTimeUnix":1511281825,"StateID":1,"CustomerID":"798","UnlockTimeout":0,"EscalationSolutionTime":0,"GroupID":1,"StateType":"new","UntilTime":0,"Priority":"5
+        very high","Age":17646,"Queue":"Junk","TypeID":1,"TicketNumber":"2017112110000096","EscalationResponseTime":0,"Owner":"root@localhost","CustomerUserID":"278@example.com","TicketID":10,"QueueID":3,"ChangeBy":1,"EscalationTime":0,"RealTillTimeNotUsed":0,"ArchiveFlag":"n"}]}'
+    http_version:
+  recorded_at: Tue, 21 Nov 2017 21:24:24 GMT
+- request:
+    method: post
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Session
+    body:
+      encoding: UTF-8
+      string: '{"UserLogin":"tester","Password":"mysecretpassword"}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '48'
+    body:
+      encoding: UTF-8
+      string: '{"SessionID":"dIDU8NVdtIvGNuyC8USrkWzncYtePwwB"}'
+    http_version:
+  recorded_at: Tue, 21 Nov 2017 21:24:24 GMT
+- request:
+    method: get
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Ticket/2
+    body:
+      encoding: UTF-8
+      string: '{"TicketID":"2","SessionID":"dIDU8NVdtIvGNuyC8USrkWzncYtePwwB"}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '761'
+    body:
+      encoding: UTF-8
+      string: '{"Ticket":[{"LockID":1,"EscalationUpdateTime":0,"Type":"Unclassified","ResponsibleID":1,"Lock":"unlock","SLAID":"","Responsible":"root@localhost","PriorityID":5,"Created":"2017-11-21
+        16:30:21","State":"new","CreateBy":1,"Title":"Why am I here?","Changed":"2017-11-21
+        16:30:22","ServiceID":"","OwnerID":1,"StateID":1,"CreateTimeUnix":1511281821,"CustomerID":"789","UnlockTimeout":0,"EscalationSolutionTime":0,"StateType":"new","GroupID":1,"UntilTime":0,"Priority":"5
+        very high","Queue":"Postmaster","Age":17650,"TypeID":1,"TicketNumber":"2017112110000014","EscalationResponseTime":0,"Owner":"root@localhost","CustomerUserID":"96@slow-company-example-sales.com","TicketID":2,"QueueID":1,"ChangeBy":1,"EscalationTime":0,"RealTillTimeNotUsed":0,"ArchiveFlag":"n"}]}'
+    http_version:
+  recorded_at: Tue, 21 Nov 2017 21:24:24 GMT
+recorded_with: VCR 3.0.3

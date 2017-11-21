@@ -4,17 +4,25 @@ RSpec.describe Tessera::Api::TicketSearch do
       getter = double
       allow(Tessera::Api::TicketSearch).to receive(:new).and_return(getter)
       expect(getter).to receive(:call)
-      Tessera::Api::TicketSearch.call({})
+      Tessera::Api::TicketSearch.call
     end
   end
 
   describe '#call' do
-    it 'returns list of tickets' do
+    it 'returns ticket IDs' do
       VCR.use_cassette 'ticket_search_success' do
-        @tickets = Tessera::Api::TicketSearch.call(Result: 'COUNT')
+        @tickets = Tessera::Api::TicketSearch.call(Title: 'Why%')
       end
 
-      # TODO
+      expect(@tickets).to eq({"TicketID"=>["10", "2"]})
+    end
+
+    it 'returns nothing (would expect error...??)' do
+      VCR.use_cassette 'ticket_search_failure' do
+        @tickets = Tessera::Api::TicketSearch.call(Types: ['why'])
+      end
+
+      expect(@tickets).to eq({})
     end
   end
 end
