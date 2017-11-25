@@ -92,6 +92,37 @@ RSpec.describe Tessera::Ticket do
         expect(@tickets.first.ticket_id).to eq(10)
         expect(@tickets.first(2).last.ticket_id).to eq(2)
       end
+
+      it 'returns array of tickets with different search' do
+        VCR.use_cassette 'ticket_where_tickets_success' do
+          result = Tessera::Ticket.where(Title: 'Why%')
+          @tickets = result.tickets
+        end
+
+        expect(@tickets).to be_kind_of(Array)
+        expect(@tickets.size).to eq(2)
+        expect(@tickets.first).to be_kind_of(Tessera::Model::Ticket)
+        expect(@tickets.first.ticket_id).to eq(10)
+        expect(@tickets.first(2).last.ticket_id).to eq(2)
+      end
+    end
+
+    describe '#count' do
+      it 'returns count of tickets found (Title)' do
+        VCR.use_cassette 'ticket_where_count_success' do
+          @result = Tessera::Ticket.where(Title: 'Why%')
+        end
+
+        expect(@result.count).to eq(2)
+      end
+
+      it 'returns count of tickets found (StateType)' do
+        VCR.use_cassette 'ticket_where_another_count_success' do
+          @result = Tessera::Ticket.where(StateType: 'new')
+        end
+
+        expect(@result.count).to eq(11)
+      end
     end
   end
 end
