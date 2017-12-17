@@ -28,6 +28,17 @@ module Tessera
         ticket_ids = result['TicketID'] ? result['TicketID'] : []
         new(ticket_ids)
       end
+
+      def create(params)
+        ticket = Tessera::Otrs::Ticket.new(params[:ticket])
+        article = Tessera::Otrs::Article.new(params[:article])
+        attachment = Tessera::Otrs::Attachment.new(params[:attachment])
+        body = { Ticket: ticket.to_hash }
+        body = body.merge(Article: article.to_hash)
+        body = body.merge(Attachment: attachment.to_hash)
+
+        Tessera::Api::TicketCreate.call(body)
+      end
     end
 
     def initialize(result)

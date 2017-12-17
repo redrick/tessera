@@ -3,6 +3,7 @@ require 'tessera'
 
 require 'support/vcr'
 require 'pry'
+require 'rack/test'
 
 require 'webmock/rspec'
 WebMock.disable_net_connect!(allow_localhost: true)

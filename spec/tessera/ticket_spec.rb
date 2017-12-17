@@ -125,4 +125,33 @@ RSpec.describe Tessera::Ticket do
       end
     end
   end
+
+  describe 'create' do
+    it 'can create ticket form given params' do
+      params = {
+        ticket: {
+          title: 'New ticket',
+          queue: 2,
+          state: 'new',
+          priority: 3,
+          customer_user: 'andrej',
+          customer_id: 'aaaaa'
+        },
+        article: {
+          from: 'sender@gmail.com',
+          subject: 'Hello World!',
+          body: 'Hello body!',
+        },
+        attachment: {
+          tempfile: Rack::Test::UploadedFile.new('spec/support/files/test.pdf')
+        }
+      }
+
+      VCR.use_cassette 'ticket_create_success' do
+        @result = Tessera::Ticket.create(params)
+      end
+
+      binding.pry
+    end
+  end
 end

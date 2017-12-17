@@ -12,3 +12,6 @@ Metrics/LineLength:
 
 Documentation:
   Enabled: false
+
+Style/VariableName:
+  Enabled: false

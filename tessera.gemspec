@@ -38,4 +38,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'webmock', '~> 3.0'
   spec.add_development_dependency 'simplecov', '~> 0.14'
   spec.add_development_dependency 'overcommit', '~> 0.40'
+  spec.add_development_dependency 'actionpack'
 end

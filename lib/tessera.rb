@@ -4,6 +4,7 @@
 #
 require 'net/http'
 require 'json'
+require 'base64'
 
 ##
 #
@@ -20,10 +21,16 @@ require 'tessera/api/session'
 require 'tessera/api/ticket_get'
 require 'tessera/api/ticket_list'
 require 'tessera/api/ticket_search'
+require 'tessera/api/ticket_create'
 
 require 'tessera/model/base'
 require 'tessera/model/session'
 require 'tessera/model/ticket'
+
+require 'tessera/otrs/base'
+require 'tessera/otrs/ticket'
+require 'tessera/otrs/article'
+require 'tessera/otrs/attachment'
 
 require 'tessera/ticket'
 
