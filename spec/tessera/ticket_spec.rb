@@ -219,9 +219,39 @@ RSpec.describe Tessera::Ticket do
       end
 
       expect(@result).to eq({
-        "ArticleID"=>164,
-        "TicketID"=>"53",
-        "TicketNumber"=>"2018010410000242"
+        "ArticleID"=>174,
+        "TicketID"=>"58",
+        "TicketNumber"=>"2018010410000297"
+      })
+    end
+
+    it 'can create ticket sending article as email to multiple `to` email' do
+      params = {
+        ticket: {
+          title: 'New ticket',
+          queue: 2,
+          state: 'new',
+          priority: 3,
+          customer_user: 'andrej',
+          customer_id: 'aaaaa'
+        },
+        article: {
+          from: 'sender@gmail.com',
+          to: 'receiver@destination.com, second@email.com',
+          subject: 'Hello World!',
+          body: 'Hello body!',
+          article_send: 1
+        }
+      }
+
+      VCR.use_cassette 'ticket_create_article_send_multiple_success' do
+        @result = Tessera::Ticket.create(params)
+      end
+
+      expect(@result).to eq({
+        "ArticleID"=>176,
+        "TicketID"=>"59",
+        "TicketNumber"=>"2018010410000304"
       })
     end
 

@@ -18,7 +18,7 @@ http_interactions:
       - '48'
     body:
       encoding: UTF-8
-      string: '{"SessionID":"7EK08QxVmuyfiDmuTQ5kxdp8JSmIqaTV"}'
+      string: '{"SessionID":"kZBhlEYUoVqxRmd1S6WKAaV6fAPtE183"}'
     http_version:
   recorded_at: Thu, 04 Jan 2018 16:15:13 GMT
 - request:
@@ -26,9 +26,10 @@ http_interactions:
     uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Ticket
     body:
       encoding: UTF-8
-      string: '{"SessionID":"7EK08QxVmuyfiDmuTQ5kxdp8JSmIqaTV","Ticket":{"Title":"New
-        ticket","QueueID":2,"State":"new","PriorityID":3,"CustomerUser":"andrej","CustomerID":"aaaaa"},"Article":{"From":"sender@gmail.com","To":"receiver@destination.com","Subject":"Hello
-        World!","Body":"Hello body!","ContentType":"text/plain; charset=utf8","CommunicationChannel":"Email","ArticleSend":1}}'
+      string: '{"SessionID":"kZBhlEYUoVqxRmd1S6WKAaV6fAPtE183","Ticket":{"Title":"New
+        ticket","QueueID":2,"State":"new","PriorityID":3,"CustomerUser":"andrej","CustomerID":"aaaaa"},"Article":{"From":"sender@gmail.com","To":"receiver@destination.com,
+        second@email.com","Subject":"Hello World!","Body":"Hello body!","ContentType":"text/plain;
+        charset=utf8","CommunicationChannel":"Email","ArticleSend":1}}'
     headers: {}
   response:
     status:
@@ -41,7 +42,7 @@ http_interactions:
       - '67'
     body:
       encoding: UTF-8
-      string: '{"ArticleID":174,"TicketID":"58","TicketNumber":"2018010410000297"}'
+      string: '{"ArticleID":176,"TicketID":"59","TicketNumber":"2018010410000304"}'
     http_version:
-  recorded_at: Thu, 04 Jan 2018 16:15:13 GMT
+  recorded_at: Thu, 04 Jan 2018 16:15:14 GMT
 recorded_with: VCR 3.0.3
