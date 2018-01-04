@@ -1,0 +1,226 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Session
+    body:
+      encoding: UTF-8
+      string: '{"UserLogin":"tester","Password":"mysecretpassword"}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '48'
+    body:
+      encoding: UTF-8
+      string: '{"SessionID":"Ob3ptcGCBI3j29HSY3l7bShW3wZShLcC"}'
+    http_version:
+  recorded_at: Thu, 04 Jan 2018 14:44:13 GMT
+- request:
+    method: get
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Ticket
+    body:
+      encoding: UTF-8
+      string: '{"Queues":["Raw"],"States":["new"],"SessionID":"Ob3ptcGCBI3j29HSY3l7bShW3wZShLcC"}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '34'
+    body:
+      encoding: UTF-8
+      string: '{"TicketID":["52","51","50","49"]}'
+    http_version:
+  recorded_at: Thu, 04 Jan 2018 14:44:13 GMT
+- request:
+    method: post
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Session
+    body:
+      encoding: UTF-8
+      string: '{"UserLogin":"tester","Password":"mysecretpassword"}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '48'
+    body:
+      encoding: UTF-8
+      string: '{"SessionID":"6TRgaDzuuNiZ77274bLv8w6D7t7oJzst"}'
+    http_version:
+  recorded_at: Thu, 04 Jan 2018 14:44:13 GMT
+- request:
+    method: get
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Ticket/52
+    body:
+      encoding: UTF-8
+      string: '{"TicketID":"52","SessionID":"6TRgaDzuuNiZ77274bLv8w6D7t7oJzst"}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '707'
+    body:
+      encoding: UTF-8
+      string: '{"Ticket":[{"Type":"Unclassified","LockID":1,"Title":"New ticket","CreateBy":2,"EscalationTime":0,"CustomerID":"aaaaa","TicketID":52,"EscalationResponseTime":0,"SLAID":"","Responsible":"root@localhost","PriorityID":3,"CustomerUserID":"andrej","GroupID":1,"Priority":"3
+        normal","Owner":"tester","UnlockTimeout":1515076639,"ResponsibleID":1,"Created":"2018-01-04
+        14:37:19","UntilTime":0,"ChangeBy":2,"TicketNumber":"2018010410000233","OwnerID":2,"State":"new","EscalationSolutionTime":0,"Queue":"Raw","ServiceID":"","Age":422,"Lock":"unlock","QueueID":2,"Changed":"2018-01-04
+        14:37:19","RealTillTimeNotUsed":0,"EscalationUpdateTime":0,"TypeID":1,"StateType":"new","ArchiveFlag":"n","TimeUnit":0,"StateID":1}]}'
+    http_version:
+  recorded_at: Thu, 04 Jan 2018 14:44:13 GMT
+- request:
+    method: post
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Session
+    body:
+      encoding: UTF-8
+      string: '{"UserLogin":"tester","Password":"mysecretpassword"}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '48'
+    body:
+      encoding: UTF-8
+      string: '{"SessionID":"Dztqtxbjkf2oJuNFzCNTDRPPJlHiFtwQ"}'
+    http_version:
+  recorded_at: Thu, 04 Jan 2018 14:44:13 GMT
+- request:
+    method: get
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Ticket/51
+    body:
+      encoding: UTF-8
+      string: '{"TicketID":"51","SessionID":"Dztqtxbjkf2oJuNFzCNTDRPPJlHiFtwQ"}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '707'
+    body:
+      encoding: UTF-8
+      string: '{"Ticket":[{"Type":"Unclassified","LockID":1,"Title":"New ticket","CreateBy":2,"EscalationTime":0,"CustomerID":"aaaaa","TicketID":51,"EscalationResponseTime":0,"SLAID":"","Responsible":"root@localhost","PriorityID":3,"GroupID":1,"CustomerUserID":"andrej","Priority":"3
+        normal","Owner":"tester","UnlockTimeout":1515076597,"ResponsibleID":1,"Created":"2018-01-04
+        14:36:37","UntilTime":0,"TicketNumber":"2018010410000224","ChangeBy":2,"OwnerID":2,"State":"new","ServiceID":"","Queue":"Raw","EscalationSolutionTime":0,"Age":464,"Lock":"unlock","QueueID":2,"Changed":"2018-01-04
+        14:36:37","RealTillTimeNotUsed":0,"EscalationUpdateTime":0,"TypeID":1,"ArchiveFlag":"n","StateType":"new","TimeUnit":0,"StateID":1}]}'
+    http_version:
+  recorded_at: Thu, 04 Jan 2018 14:44:13 GMT
+- request:
+    method: post
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Session
+    body:
+      encoding: UTF-8
+      string: '{"UserLogin":"tester","Password":"mysecretpassword"}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '48'
+    body:
+      encoding: UTF-8
+      string: '{"SessionID":"2Eajcu4tk9HYQbgwn940SCHHiMXafKrt"}'
+    http_version:
+  recorded_at: Thu, 04 Jan 2018 14:44:13 GMT
+- request:
+    method: get
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Ticket/50
+    body:
+      encoding: UTF-8
+      string: '{"TicketID":"50","SessionID":"2Eajcu4tk9HYQbgwn940SCHHiMXafKrt"}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '732'
+    body:
+      encoding: UTF-8
+      string: '{"Ticket":[{"Type":"Unclassified","LockID":1,"Title":"Technický problém
+        - uolas - Test","CreateBy":2,"EscalationTime":0,"CustomerID":"aaaaa","TicketID":50,"EscalationResponseTime":0,"SLAID":"","Responsible":"root@localhost","PriorityID":3,"GroupID":1,"CustomerUserID":"andrej","Priority":"3
+        normal","Owner":"tester","UnlockTimeout":1515074061,"ResponsibleID":1,"Created":"2018-01-04
+        13:54:21","UntilTime":0,"TicketNumber":"2018010410000215","ChangeBy":2,"OwnerID":2,"State":"new","ServiceID":"","Queue":"Raw","EscalationSolutionTime":0,"Age":3000,"Lock":"unlock","QueueID":2,"Changed":"2018-01-04
+        13:54:21","RealTillTimeNotUsed":0,"EscalationUpdateTime":0,"TypeID":1,"ArchiveFlag":"n","StateType":"new","TimeUnit":0,"StateID":1}]}'
+    http_version:
+  recorded_at: Thu, 04 Jan 2018 14:44:13 GMT
+- request:
+    method: post
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Session
+    body:
+      encoding: UTF-8
+      string: '{"UserLogin":"tester","Password":"mysecretpassword"}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '48'
+    body:
+      encoding: UTF-8
+      string: '{"SessionID":"6wSl7vhSyx7vrmrAgCHlJoJjpRp88L4C"}'
+    http_version:
+  recorded_at: Thu, 04 Jan 2018 14:44:13 GMT
+- request:
+    method: get
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Ticket/49
+    body:
+      encoding: UTF-8
+      string: '{"TicketID":"49","SessionID":"6wSl7vhSyx7vrmrAgCHlJoJjpRp88L4C"}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '708'
+    body:
+      encoding: UTF-8
+      string: '{"Ticket":[{"Type":"Unclassified","LockID":1,"Title":"New ticket","CreateBy":2,"EscalationTime":0,"CustomerID":"aaaaa","TicketID":49,"EscalationResponseTime":0,"SLAID":"","Responsible":"root@localhost","PriorityID":3,"CustomerUserID":"andrej","GroupID":1,"Priority":"3
+        normal","Owner":"tester","UnlockTimeout":1515073729,"ResponsibleID":1,"Created":"2018-01-04
+        13:48:49","UntilTime":0,"ChangeBy":2,"TicketNumber":"2018010410000206","OwnerID":2,"State":"new","EscalationSolutionTime":0,"Queue":"Raw","ServiceID":"","Age":3332,"Lock":"unlock","QueueID":2,"Changed":"2018-01-04
+        13:48:49","RealTillTimeNotUsed":0,"EscalationUpdateTime":0,"TypeID":1,"StateType":"new","ArchiveFlag":"n","TimeUnit":0,"StateID":1}]}'
+    http_version:
+  recorded_at: Thu, 04 Jan 2018 14:44:13 GMT
+recorded_with: VCR 3.0.3

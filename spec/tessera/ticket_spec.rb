@@ -94,16 +94,18 @@ RSpec.describe Tessera::Ticket do
       end
 
       it 'returns array of tickets with different search' do
-        VCR.use_cassette 'ticket_where_tickets_success' do
-          result = Tessera::Ticket.where(Title: 'Why%')
+        VCR.use_cassette 'ticket_where_tickets_specific_success' do
+          result = Tessera::Ticket
+            .where(Queues: ['Raw'], States: ['new'])
           @tickets = result.tickets
         end
 
         expect(@tickets).to be_kind_of(Array)
-        expect(@tickets.size).to eq(2)
+        expect(@tickets.size).to eq(4)
         expect(@tickets.first).to be_kind_of(Tessera::Model::Ticket)
-        expect(@tickets.first.ticket_id).to eq(10)
-        expect(@tickets.first(2).last.ticket_id).to eq(2)
+        expect(@tickets.map(&:ticket_number))
+          .to contain_exactly("2018010410000233", "2018010410000224",
+                              "2018010410000215", "2018010410000206")
       end
     end
 
@@ -151,7 +153,43 @@ RSpec.describe Tessera::Ticket do
         @result = Tessera::Ticket.create(params)
       end
 
-      binding.pry
+      expect(@result).to eq({
+        "ArticleID"=>156,
+        "TicketID"=>"49",
+        "TicketNumber"=>"2018010410000206"
+      })
+    end
+
+    it 'fails creating ticket with OTRS error message (missing params)' do
+      params = {
+        ticket: {
+          title: 'New ticket',
+          queue: 2,
+          state: 'new',
+          priority: 3,
+          customer_user: nil,
+          customer_id: 'aaaaa'
+        },
+        article: {
+          from: 'sender@gmail.com',
+          subject: 'Hello World!',
+          body: 'Hello body!',
+        },
+        attachment: {
+          tempfile: Rack::Test::UploadedFile.new('spec/support/files/test.pdf')
+        }
+      }
+
+      VCR.use_cassette 'ticket_create_failure' do
+        @result = Tessera::Ticket.create(params)
+      end
+
+      expect(@result).to eq({
+        "Error" => {
+          "ErrorMessage"=>"TicketCreate: Ticket->CustomerUser parameter is missing!",
+          "ErrorCode"=>"TicketCreate.MissingParameter"
+        }
+      })
     end
   end
 end

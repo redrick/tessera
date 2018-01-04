@@ -2,7 +2,8 @@ RSpec.describe Tessera::Otrs::Ticket do
   describe 'initialize' do
     it 'can initialize object with deafult an given values' do
       ticket = Tessera::Otrs::Ticket
-        .new('Title', 22, 'new', 2, 'user@customer.com', 234)
+        .new(title: 'Title', queue: 22, state: 'new', priority: 2,
+             customer_user: 'user@customer.com', customer_id: 234)
 
       expect(ticket.Title).to eq('Title')
       expect(ticket.QueueID).to eq(22)
@@ -16,7 +17,8 @@ RSpec.describe Tessera::Otrs::Ticket do
   describe '#to_hash' do
     it 'correctly converts to hash' do
       ticket = Tessera::Otrs::Ticket
-        .new('Title', 22, 'new', 2, 'user@customer.com', 234)
+        .new(title: 'Title', queue: 22, state: 'new', priority: 2,
+             customer_user: 'user@customer.com', customer_id: 234)
 
       expect(ticket.to_hash).to eq(
         {
