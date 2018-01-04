@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Session
+    body:
+      encoding: UTF-8
+      string: '{"UserLogin":"tester","Password":"mysecretpassword"}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '48'
+    body:
+      encoding: UTF-8
+      string: '{"SessionID":"ou5h8N4MOAKSdebZ2b0QzXA5kFHmCopD"}'
+    http_version:
+  recorded_at: Thu, 04 Jan 2018 15:57:24 GMT
+- request:
+    method: post
+    uri: http://localhost/otrs/nph-genericinterface.pl/Webservice/tickets/Ticket
+    body:
+      encoding: UTF-8
+      string: '{"SessionID":"ou5h8N4MOAKSdebZ2b0QzXA5kFHmCopD","Ticket":{"Title":"New
+        ticket","QueueID":2,"State":"new","PriorityID":3,"CustomerUser":"andrej","CustomerID":"aaaaa"},"Article":{"From":"sender@gmail.com","To":null,"Subject":"Hello
+        World!","Body":"Hello body!","ContentType":"text/plain; charset=utf8","CommunicationChannel":"Email","ArticleSend":0}}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '67'
+    body:
+      encoding: UTF-8
+      string: '{"ArticleID":170,"TicketID":"56","TicketNumber":"2018010410000279"}'
+    http_version:
+  recorded_at: Thu, 04 Jan 2018 15:57:25 GMT
+recorded_with: VCR 3.0.3

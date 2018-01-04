@@ -29,16 +29,29 @@ module Tessera
         new(ticket_ids)
       end
 
+      # rubocop:disable Metrics/AbcSize
+      # rubocop:disable Metrics/MethodLength
       def create(params)
-        ticket = Tessera::Otrs::Ticket.new(params[:ticket])
-        article = Tessera::Otrs::Article.new(params[:article])
-        attachment = Tessera::Otrs::Attachment.new(params[:attachment])
-        body = { Ticket: ticket.to_hash }
-        body = body.merge(Article: article.to_hash)
-        body = body.merge(Attachment: attachment.to_hash)
+        ticket = Tessera::Otrs::Ticket.new(params[:ticket]).to_hash
+        article = Tessera::Otrs::Article.new(params[:article]).to_hash
+        attachment = if params[:attachment]
+                       case params[:attachment].class
+                       when Hash
+                         Tessera::Otrs::Attachment.new(params[:attachment]).to_hash
+                       when Array
+                         params[:attachment].map do |a|
+                           Tessera::Otrs::Attachment.new(a).to_hash
+                         end
+                       end
+                     end
+        body = { Ticket: ticket }
+        body = body.merge(Article: article)
+        body = body.merge(Attachment: attachment) if attachment
 
         Tessera::Api::TicketCreate.call(body)
       end
+      # rubocop:enable Metrics/MethodLength
+      # rubocop:enable Metrics/AbcSize
     end
 
     def initialize(result)

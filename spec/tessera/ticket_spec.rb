@@ -154,9 +154,9 @@ RSpec.describe Tessera::Ticket do
       end
 
       expect(@result).to eq({
-        "ArticleID"=>156,
-        "TicketID"=>"49",
-        "TicketNumber"=>"2018010410000206"
+        "ArticleID"=>166,
+        "TicketID"=>"54",
+        "TicketNumber"=>"2018010410000251"
       })
     end
 
@@ -189,6 +189,103 @@ RSpec.describe Tessera::Ticket do
           "ErrorMessage"=>"TicketCreate: Ticket->CustomerUser parameter is missing!",
           "ErrorCode"=>"TicketCreate.MissingParameter"
         }
+      })
+    end
+
+    it 'can create ticket sending article as email to `to` email' do
+      params = {
+        ticket: {
+          title: 'New ticket',
+          queue: 2,
+          state: 'new',
+          priority: 3,
+          customer_user: 'andrej',
+          customer_id: 'aaaaa'
+        },
+        article: {
+          from: 'sender@gmail.com',
+          to: 'receiver@destination.com',
+          subject: 'Hello World!',
+          body: 'Hello body!',
+          article_send: 1
+        },
+        attachment: {
+          tempfile: Rack::Test::UploadedFile.new('spec/support/files/test.pdf')
+        }
+      }
+
+      VCR.use_cassette 'ticket_create_article_send_success' do
+        @result = Tessera::Ticket.create(params)
+      end
+
+      expect(@result).to eq({
+        "ArticleID"=>164,
+        "TicketID"=>"53",
+        "TicketNumber"=>"2018010410000242"
+      })
+    end
+
+    it 'can create ticket with multiple attachments' do
+      params = {
+        ticket: {
+          title: 'New ticket',
+          queue: 2,
+          state: 'new',
+          priority: 3,
+          customer_user: 'andrej',
+          customer_id: 'aaaaa'
+        },
+        article: {
+          from: 'sender@gmail.com',
+          subject: 'Hello World!',
+          body: 'Hello body!',
+        },
+        attachment: [
+          {
+            tempfile: Rack::Test::UploadedFile.new('spec/support/files/test.pdf')
+          },
+          {
+            tempfile: Rack::Test::UploadedFile.new('spec/support/files/test2.pdf')
+          }
+        ]
+      }
+
+      VCR.use_cassette 'ticket_create_attachments_success' do
+        @result = Tessera::Ticket.create(params)
+      end
+
+      expect(@result).to eq({
+        "ArticleID"=>168,
+        "TicketID"=>"55",
+        "TicketNumber"=>"2018010410000261"
+      })
+    end
+
+    it 'can create ticket without attachment' do
+      params = {
+        ticket: {
+          title: 'New ticket',
+          queue: 2,
+          state: 'new',
+          priority: 3,
+          customer_user: 'andrej',
+          customer_id: 'aaaaa'
+        },
+        article: {
+          from: 'sender@gmail.com',
+          subject: 'Hello World!',
+          body: 'Hello body!',
+        }
+      }
+
+      VCR.use_cassette 'ticket_create_no_attachment_success' do
+        @result = Tessera::Ticket.create(params)
+      end
+
+      expect(@result).to eq({
+        "ArticleID"=>170,
+        "TicketID"=>"56",
+        "TicketNumber"=>"2018010410000279"
       })
     end
   end
