@@ -153,6 +153,12 @@ params = {
 result = Tessera::Ticket.create(params)
 ```
 
+NOTE: this sending of article `To` email is not done purely by OTRS, you will
+have to user this plugin:
+https://github.com/znuny/Znuny4OTRS-GIArticleSend
+
+Please see instalation notes provided by
+https://github.com/znuny/Znuny4OTRS-Rep
 
 ## Development
 
