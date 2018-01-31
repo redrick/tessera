@@ -34,14 +34,11 @@ module Tessera
       def create(params)
         ticket = Tessera::Otrs::Ticket.new(params[:ticket]).to_hash
         article = Tessera::Otrs::Article.new(params[:article]).to_hash
-        attachment = if params[:attachment]
-                       case params[:attachment].class
-                       when Hash
-                         Tessera::Otrs::Attachment.new(params[:attachment]).to_hash
-                       when Array
-                         params[:attachment].map do |a|
-                           Tessera::Otrs::Attachment.new(a).to_hash
-                         end
+        attachment = if params[:attachment] && params[:attachment].is_a?(Hash)
+                       Tessera::Otrs::Attachment.new(params[:attachment]).to_hash
+                     elsif params[:attachment] && params[:attachment].is_a?(Array)
+                       params[:attachment].map do |a|
+                         Tessera::Otrs::Attachment.new(a).to_hash
                        end
                      end
         body = { Ticket: ticket }
