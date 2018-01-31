@@ -4,6 +4,7 @@ module Tessera
       attr_accessor :Content, :ContentType, :Filename
 
       def initialize(tempfile:)
+        tempfile.rewind
         @Content = Base64.encode64(tempfile.read)
         @ContentType = tempfile.content_type
         @Filename = tempfile.original_filename
